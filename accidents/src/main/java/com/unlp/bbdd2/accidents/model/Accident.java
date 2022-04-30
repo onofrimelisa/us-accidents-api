@@ -1,5 +1,6 @@
 package com.unlp.bbdd2.accidents.model;
 
+import org.elasticsearch.common.geo.GeoPoint;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
@@ -11,6 +12,12 @@ public class Accident {
 
     @Id
     private String id;
+
+    @Field("start_location")
+    private GeoPoint startLocation;
+
+    @Field("end_location")
+    private GeoPoint endLocation;
 
     @Field("Airport_Code")
     private String airportCode;
@@ -45,12 +52,6 @@ public class Accident {
     @Field("Distance(mi)")
     private String distance;
 
-    @Field("End_Lat")
-    private String endLat;
-
-    @Field("End_Lng")
-    private String endLng;
-
     @Field("End_Time")
     private String endTime;
 
@@ -66,6 +67,22 @@ public class Accident {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public GeoPoint getStartLocation() {
+        return startLocation;
+    }
+
+    public void setStartLocation(GeoPoint startLocation) {
+        this.startLocation = startLocation;
+    }
+
+    public GeoPoint getEndLocation() {
+        return endLocation;
+    }
+
+    public void setEndLocation(GeoPoint endLocation) {
+        this.endLocation = endLocation;
     }
 
     public String getAirportCode() {
@@ -154,22 +171,6 @@ public class Accident {
 
     public void setDistance(String distance) {
         this.distance = distance;
-    }
-
-    public String getEndLat() {
-        return endLat;
-    }
-
-    public void setEndLat(String endLat) {
-        this.endLat = endLat;
-    }
-
-    public String getEndLng() {
-        return endLng;
-    }
-
-    public void setEndLng(String endLng) {
-        this.endLng = endLng;
     }
 
     public String getEndTime() {

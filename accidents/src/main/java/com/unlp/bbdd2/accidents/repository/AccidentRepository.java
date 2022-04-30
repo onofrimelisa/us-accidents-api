@@ -10,4 +10,6 @@ public interface AccidentRepository extends ElasticsearchRepository<Accident, St
     Page<Accident> findAll(Pageable pageable);
 
     Page<Accident> findByAirportCode(String airportCode, Pageable pageable);
+
+
 }

@@ -3,3 +3,10 @@
 elk/dataset/nodes
 elk/dataset/us_accidents.csv.zip
 elk/dataset/us_accidents.csv
+
+
+### IntelliJ IDEA ###
+.idea
+*.iws 
+*.iml
+*.ipr
