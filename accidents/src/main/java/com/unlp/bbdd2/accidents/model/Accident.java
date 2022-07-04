@@ -1,65 +1,86 @@
 package com.unlp.bbdd2.accidents.model;
 
-import org.elasticsearch.common.geo.GeoPoint;
+
+import com.mongodb.client.model.geojson.Point;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.elasticsearch.annotations.Document;
-import org.springframework.data.elasticsearch.annotations.Field;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
-import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
-@Document(indexName = "us_accidents")
+@Document("accidents")
 public class Accident {
 
     @Id
     private String id;
 
-    @Field("start_location")
-    private GeoPoint startLocation;
-
-    @Field("end_location")
-    private GeoPoint endLocation;
-
-    @Field("Airport_Code")
-    private String airportCode;
-
-    @Field("Amenity")
-    private Boolean amenity;
-
-    @Field("Astronomical_Twilight")
-    private String astronomicalTwilight;
-
-    @Field("Bump")
-    private String bump;
-
-    @Field("City")
-    private String city;
-
-    @Field("City_Twilight")
-    private String cityTwilight;
-
-    @Field("Country")
-    private String country;
-
-    @Field("County")
-    private String county;
-
-    @Field("Crossing")
-    private String crossing;
-
-    @Field("Description")
+    @Field("accident_id")
+    private String accidentId;
+    @Field("start_point")
+    private Point startPoint;
+    @Field("stop_point")
+    private Point stopPoint;
+    private Integer severity;
+    private String source;
+    @Field("start_time")
+    private LocalDateTime startTime;
+    @Field("end_time")
+    private LocalDateTime endTime;
     private String description;
-
-    @Field("Distance(mi)")
-    private String distance;
-
-    @Field("End_Time")
-    private String endTime;
-
-    @Field("Give_Way")
-    private String giveWay;
-
-    @Field("Humidity(%)")
-    private String humidity;
+    private String number;
+    private String street;
+    private String side;
+    private String city;
+    private String county;
+    private String state;
+    private String zipcode;
+    private String country;
+    private String timezone;
+    @Field("airport_code")
+    private String airportCode;
+    @Field("weatherTimestamp")
+    private LocalDateTime weatherTimestamp;
+    private Double tmc;
+    private Double distance;
+    private Double temperature;
+    @Field("wind_chill")
+    private Double windChill;
+    private Double humidity;
+    private Double pressure;
+    private Double visibility;
+    @Field("weather_condition")
+    private String weatherCondition;
+    private Double precipitation;
+    @Field("wind_speed")
+    private Double windSpeed;
+    @Field("wind_direction")
+    private String windDirection;
+    private Boolean amenity;
+    private Boolean bump;
+    private Boolean crossing;
+    @Field("give_way")
+    private Boolean giveWay;
+    private Boolean juntion;
+    @Field("no_exit")
+    private Boolean noExit;
+    private Boolean railway;
+    private Boolean roundabout;
+    private Boolean station;
+    private Boolean stop;
+    @Field("traffic_calming")
+    private Boolean trafficCalming;
+    @Field("traffic_signal")
+    private Boolean trafficSignal;
+    @Field("turning_loop")
+    private Boolean turningLoop;
+    @Field("sunrise_sunset")
+    private String sunriseSunset;
+    @Field("civil_twilight")
+    private String civilTwilight;
+    @Field("nautical_twilight")
+    private String nauticalTwilight;
+    @Field("astronomical_twilight")
+    private String astronomicalTwilight;
 
     public String getId() {
         return id;
@@ -69,92 +90,60 @@ public class Accident {
         this.id = id;
     }
 
-    public GeoPoint getStartLocation() {
-        return startLocation;
+    public String getAccidentId() {
+        return accidentId;
     }
 
-    public void setStartLocation(GeoPoint startLocation) {
-        this.startLocation = startLocation;
+    public void setAccidentId(String accidentId) {
+        this.accidentId = accidentId;
     }
 
-    public GeoPoint getEndLocation() {
-        return endLocation;
+    public Point getStartPoint() {
+        return startPoint;
     }
 
-    public void setEndLocation(GeoPoint endLocation) {
-        this.endLocation = endLocation;
+    public void setStartPoint(Point startPoint) {
+        this.startPoint = startPoint;
     }
 
-    public String getAirportCode() {
-        return airportCode;
+    public Point getStopPoint() {
+        return stopPoint;
     }
 
-    public void setAirportCode(String airportCode) {
-        this.airportCode = airportCode;
+    public void setStopPoint(Point stopPoint) {
+        this.stopPoint = stopPoint;
     }
 
-    public Boolean getAmenity() {
-        return amenity;
+    public Integer getSeverity() {
+        return severity;
     }
 
-    public void setAmenity(Boolean amenity) {
-        this.amenity = amenity;
+    public void setSeverity(Integer severity) {
+        this.severity = severity;
     }
 
-    public String getAstronomicalTwilight() {
-        return astronomicalTwilight;
+    public String getSource() {
+        return source;
     }
 
-    public void setAstronomicalTwilight(String astronomicalTwilight) {
-        this.astronomicalTwilight = astronomicalTwilight;
+    public void setSource(String source) {
+        this.source = source;
     }
 
-    public String getBump() {
-        return bump;
+    public LocalDateTime getStartTime() {
+        return startTime;
     }
 
-    public void setBump(String bump) {
-        this.bump = bump;
+    public void setStartTime(LocalDateTime startTime) {
+        this.startTime = startTime;
     }
 
-    public String getCity() {
-        return city;
+    public LocalDateTime getEndTime() {
+        return endTime;
     }
 
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getCityTwilight() {
-        return cityTwilight;
-    }
-
-    public void setCityTwilight(String cityTwilight) {
-        this.cityTwilight = cityTwilight;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
-    public String getCounty() {
-        return county;
-    }
-
-    public void setCounty(String county) {
-        this.county = county;
-    }
-
-    public String getCrossing() {
-        return crossing;
-    }
-
-    public void setCrossing(String crossing) {
-        this.crossing = crossing;
+    public void setEndTime(LocalDateTime endTime) {
+        this.endTime = endTime;
     }
 
     public String getDescription() {
@@ -165,35 +154,315 @@ public class Accident {
         this.description = description;
     }
 
-    public String getDistance() {
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public String getSide() {
+        return side;
+    }
+
+    public void setSide(String side) {
+        this.side = side;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getCounty() {
+        return county;
+    }
+
+    public void setCounty(String county) {
+        this.county = county;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getZipcode() {
+        return zipcode;
+    }
+
+    public void setZipcode(String zipcode) {
+        this.zipcode = zipcode;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getTimezone() {
+        return timezone;
+    }
+
+    public void setTimezone(String timezone) {
+        this.timezone = timezone;
+    }
+
+    public String getAirportCode() {
+        return airportCode;
+    }
+
+    public void setAirportCode(String airportCode) {
+        this.airportCode = airportCode;
+    }
+
+    public LocalDateTime getWeatherTimestamp() {
+        return weatherTimestamp;
+    }
+
+    public void setWeatherTimestamp(LocalDateTime weatherTimestamp) {
+        this.weatherTimestamp = weatherTimestamp;
+    }
+
+    public Double getTmc() {
+        return tmc;
+    }
+
+    public void setTmc(Double tmc) {
+        this.tmc = tmc;
+    }
+
+    public Double getDistance() {
         return distance;
     }
 
-    public void setDistance(String distance) {
+    public void setDistance(Double distance) {
         this.distance = distance;
     }
 
-    public String getEndTime() {
-        return endTime;
+    public Double getTemperature() {
+        return temperature;
     }
 
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
+    public void setTemperature(Double temperature) {
+        this.temperature = temperature;
     }
 
-    public String getGiveWay() {
-        return giveWay;
+    public Double getWindChill() {
+        return windChill;
     }
 
-    public void setGiveWay(String giveWay) {
-        this.giveWay = giveWay;
+    public void setWindChill(Double windChill) {
+        this.windChill = windChill;
     }
 
-    public String getHumidity() {
+    public Double getHumidity() {
         return humidity;
     }
 
-    public void setHumidity(String humidity) {
+    public void setHumidity(Double humidity) {
         this.humidity = humidity;
+    }
+
+    public Double getPressure() {
+        return pressure;
+    }
+
+    public void setPressure(Double pressure) {
+        this.pressure = pressure;
+    }
+
+    public Double getVisibility() {
+        return visibility;
+    }
+
+    public void setVisibility(Double visibility) {
+        this.visibility = visibility;
+    }
+
+    public String getWeatherCondition() {
+        return weatherCondition;
+    }
+
+    public void setWeatherCondition(String weatherCondition) {
+        this.weatherCondition = weatherCondition;
+    }
+
+    public Double getPrecipitation() {
+        return precipitation;
+    }
+
+    public void setPrecipitation(Double precipitation) {
+        this.precipitation = precipitation;
+    }
+
+    public Double getWindSpeed() {
+        return windSpeed;
+    }
+
+    public void setWindSpeed(Double windSpeed) {
+        this.windSpeed = windSpeed;
+    }
+
+    public String getWindDirection() {
+        return windDirection;
+    }
+
+    public void setWindDirection(String windDirection) {
+        this.windDirection = windDirection;
+    }
+
+    public Boolean getAmenity() {
+        return amenity;
+    }
+
+    public void setAmenity(Boolean amenity) {
+        this.amenity = amenity;
+    }
+
+    public Boolean getBump() {
+        return bump;
+    }
+
+    public void setBump(Boolean bump) {
+        this.bump = bump;
+    }
+
+    public Boolean getCrossing() {
+        return crossing;
+    }
+
+    public void setCrossing(Boolean crossing) {
+        this.crossing = crossing;
+    }
+
+    public Boolean getGiveWay() {
+        return giveWay;
+    }
+
+    public void setGiveWay(Boolean giveWay) {
+        this.giveWay = giveWay;
+    }
+
+    public Boolean getJuntion() {
+        return juntion;
+    }
+
+    public void setJuntion(Boolean juntion) {
+        this.juntion = juntion;
+    }
+
+    public Boolean getNoExit() {
+        return noExit;
+    }
+
+    public void setNoExit(Boolean noExit) {
+        this.noExit = noExit;
+    }
+
+    public Boolean getRailway() {
+        return railway;
+    }
+
+    public void setRailway(Boolean railway) {
+        this.railway = railway;
+    }
+
+    public Boolean getRoundabout() {
+        return roundabout;
+    }
+
+    public void setRoundabout(Boolean roundabout) {
+        this.roundabout = roundabout;
+    }
+
+    public Boolean getStation() {
+        return station;
+    }
+
+    public void setStation(Boolean station) {
+        this.station = station;
+    }
+
+    public Boolean getStop() {
+        return stop;
+    }
+
+    public void setStop(Boolean stop) {
+        this.stop = stop;
+    }
+
+    public Boolean getTrafficCalming() {
+        return trafficCalming;
+    }
+
+    public void setTrafficCalming(Boolean trafficCalming) {
+        this.trafficCalming = trafficCalming;
+    }
+
+    public Boolean getTrafficSignal() {
+        return trafficSignal;
+    }
+
+    public void setTrafficSignal(Boolean trafficSignal) {
+        this.trafficSignal = trafficSignal;
+    }
+
+    public Boolean getTurningLoop() {
+        return turningLoop;
+    }
+
+    public void setTurningLoop(Boolean turningLoop) {
+        this.turningLoop = turningLoop;
+    }
+
+    public String getSunriseSunset() {
+        return sunriseSunset;
+    }
+
+    public void setSunriseSunset(String sunriseSunset) {
+        this.sunriseSunset = sunriseSunset;
+    }
+
+    public String getCivilTwilight() {
+        return civilTwilight;
+    }
+
+    public void setCivilTwilight(String civilTwilight) {
+        this.civilTwilight = civilTwilight;
+    }
+
+    public String getNauticalTwilight() {
+        return nauticalTwilight;
+    }
+
+    public void setNauticalTwilight(String nauticalTwilight) {
+        this.nauticalTwilight = nauticalTwilight;
+    }
+
+    public String getAstronomicalTwilight() {
+        return astronomicalTwilight;
+    }
+
+    public void setAstronomicalTwilight(String astronomicalTwilight) {
+        this.astronomicalTwilight = astronomicalTwilight;
     }
 }

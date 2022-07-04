@@ -1,15 +1,10 @@
 package com.unlp.bbdd2.accidents.repository;
 
 import com.unlp.bbdd2.accidents.model.Accident;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
 
-public interface AccidentRepository extends ElasticsearchRepository<Accident, String> {
-
-    Page<Accident> findAll(Pageable pageable);
-
-    Page<Accident> findByAirportCode(String airportCode, Pageable pageable);
-
-
+@Repository
+public interface AccidentRepository extends MongoRepository<Accident, String> {
+    Accident findByAccidentId(String accidentId);
 }
