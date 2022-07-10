@@ -1,8 +1,7 @@
 
 .DS_Store
-elk/dataset/nodes
-elk/dataset/us_accidents.csv.zip
-elk/dataset/us_accidents.csv
+**us_accidents.json
+**us_accidents.csv
 
 
 ### IntelliJ IDEA ###
