@@ -6,4 +6,4 @@ mongoimport \
 --collection accidents \
 --type json \
 --jsonArray \
---file /mongo-seed/us_accidents.json
+--file /mongo/us_accidents.json
