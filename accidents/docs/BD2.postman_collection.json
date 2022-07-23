@@ -1,0 +1,56 @@
+{
+	"info": {
+		"_postman_id": "8c142ec9-c755-45a2-94d5-87a912d8e617",
+		"name": "BD2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21797663"
+	},
+	"item": [
+		{
+			"name": "Get accidents",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/accident",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"accident"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Polygon",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstPoint\": {\n        \"latitude\": 40,\n        \"longitude\": -85\n    },\n    \"secondPoint\": {\n        \"latitude\": 40,\n        \"longitude\": -85\n    },\n    \"thirdPoint\": {\n        \"latitude\": 0,\n        \"longitude\": 10\n    },\n    \"fourthPoint\": {\n        \"latitude\": 49,\n        \"longitude\": 0\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/accident/polygon",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"accident",
+						"polygon"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
