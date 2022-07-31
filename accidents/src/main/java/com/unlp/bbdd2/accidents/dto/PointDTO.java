@@ -1,22 +1,22 @@
 package com.unlp.bbdd2.accidents.dto;
 
 public class PointDTO {
-    private double latitude;
-    private double longitude;
+    private double x;
+    private double y;
 
-    public double getLatitude() {
-        return latitude;
+    public double getX() {
+        return x;
     }
 
-    public void setLatitude(double latitude) {
-        this.latitude = latitude;
+    public void setX(double x) {
+        this.x = x;
     }
 
-    public double getLongitude() {
-        return longitude;
+    public double getY() {
+        return y;
     }
 
-    public void setLongitude(double longitude) {
-        this.longitude = longitude;
+    public void setY(double y) {
+        this.y = y;
     }
 }

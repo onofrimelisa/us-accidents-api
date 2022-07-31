@@ -1,40 +1,18 @@
 package com.unlp.bbdd2.accidents.dto;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Size;
+import java.util.List;
+
 public class PolygonRequestDTO {
-    private PointDTO firstPoint;
-    private PointDTO secondPoint;
-    private PointDTO thirdPoint;
-    private PointDTO fourthPoint;
+    @Size(min = 4)
+    List<PointDTO> points;
 
-    public PointDTO getFirstPoint() {
-        return firstPoint;
+    public List<PointDTO> getPoints() {
+        return points;
     }
 
-    public void setFirstPoint(PointDTO firstPoint) {
-        this.firstPoint = firstPoint;
-    }
-
-    public PointDTO getSecondPoint() {
-        return secondPoint;
-    }
-
-    public void setSecondPoint(PointDTO secondPoint) {
-        this.secondPoint = secondPoint;
-    }
-
-    public PointDTO getThirdPoint() {
-        return thirdPoint;
-    }
-
-    public void setThirdPoint(PointDTO thirdPoint) {
-        this.thirdPoint = thirdPoint;
-    }
-
-    public PointDTO getFourthPoint() {
-        return fourthPoint;
-    }
-
-    public void setFourthPoint(PointDTO fourthPoint) {
-        this.fourthPoint = fourthPoint;
+    public void setPoints(List<PointDTO> points) {
+        this.points = points;
     }
 }
