@@ -51,6 +51,34 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Circle",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"point\": {\n        \"x\": 40.9,\n        \"y\": -80.1\n    },\n    \"radius\": 3\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/accident/circle",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"accident",
+						"circle"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
