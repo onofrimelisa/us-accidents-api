@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
+@Validated
 public class AccidentController {
 
     @Autowired

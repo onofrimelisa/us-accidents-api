@@ -7,13 +7,14 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.geo.Circle;
 import org.springframework.data.geo.Point;
 import org.springframework.data.geo.Polygon;
+import org.springframework.data.geo.Shape;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 
 @Service
-public class AccidentService {
+public class AccidentService implements IAccidentService {
 
     private static final int PAGE_SIZE = 10;
 

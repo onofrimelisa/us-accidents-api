@@ -1,22 +1,30 @@
 package com.unlp.bbdd2.accidents.dto;
 
-public class PointDTO {
-    private double x;
-    private double y;
+import org.springframework.validation.annotation.Validated;
 
-    public double getX() {
+import javax.validation.constraints.NotNull;
+
+@Validated
+public class PointDTO {
+    @NotNull(message = "The X coordinate of the point must not be null.")
+
+    private Double x;
+    @NotNull(message = "The Y coordinate of the point must not be null.")
+    private Double y;
+
+    public Double getX() {
         return x;
     }
 
-    public void setX(double x) {
+    public void setX(Double x) {
         this.x = x;
     }
 
-    public double getY() {
+    public Double getY() {
         return y;
     }
 
-    public void setY(double y) {
+    public void setY(Double y) {
         this.y = y;
     }
 }
