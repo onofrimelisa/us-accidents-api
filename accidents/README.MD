@@ -4,7 +4,7 @@
 - [Useful Links](#useful-links)
 
 ## Description
-
+Once the app is up and running, access the following [link](http://localhost:8080/swagger-ui/index.html#/) to se the API specification.
 
 [//]: <> (TODO definir bien lo que hace la api - ingles)
 - definir un polígono y que me traiga conocer los accidentes que ocurrieron dentro
