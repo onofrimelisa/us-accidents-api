@@ -16,3 +16,4 @@ Once the app is up and running, access the following [link](http://localhost:808
 - [Mongo Repositories](https://docs.spring.io/spring-data/mongodb/docs/1.2.0.RELEASE/reference/html/mongo.repositories.html)
 - [Spring Data MongoDB - Reference Documentation](https://docs.spring.io/spring-data/mongodb/docs/current/reference/html/)
 - [Draw a Polygon online](https://www.mathsisfun.com/geometry/polygons-interactive.html)
+- [Model Mapper](https://www.baeldung.com/java-modelmapper)
