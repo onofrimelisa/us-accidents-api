@@ -25,6 +25,25 @@
 			"response": []
 		},
 		{
+			"name": "Get accident",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/accident/A-1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"accident",
+						"A-1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Polygon",
 			"request": {
 				"method": "POST",
