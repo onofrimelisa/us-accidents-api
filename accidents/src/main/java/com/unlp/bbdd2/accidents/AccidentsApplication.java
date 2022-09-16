@@ -6,11 +6,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 @SpringBootApplication
-@EnableMongoRepositories(basePackageClasses= AccidentRepository.class)
+@EnableMongoRepositories(basePackageClasses = AccidentRepository.class)
 public class AccidentsApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(AccidentsApplication.class, args);
-	}
+  public static void main(String[] args) {
+    SpringApplication.run(AccidentsApplication.class, args);
+  }
 
 }

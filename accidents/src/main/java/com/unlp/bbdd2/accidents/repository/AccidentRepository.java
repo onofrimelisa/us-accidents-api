@@ -9,6 +9,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AccidentRepository extends MongoRepository<Accident, String> {
-    Accident findByAccidentId(String accidentId);
-    Page<Accident> findByStartPointWithin(Shape shape, Pageable pageable);
+
+  Accident findByAccidentId(String accidentId);
+
+  Page<Accident> findByStartPointWithin(Shape shape, Pageable pageable);
 }

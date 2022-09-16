@@ -14,29 +14,31 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class AccidentDTOMapper {
 
-    @Bean
-    public ModelMapper getMapper() {
-        ModelMapper modelMapper = new ModelMapper();
+  @Bean
+  public ModelMapper getAccidentDTOMapper() {
+    ModelMapper modelMapper = new ModelMapper();
 
-        // converters
-        Converter<Point, PointDTO> pointDTOConverter = c -> {
-            Optional<Point> source = Optional.ofNullable(c.getSource());
+    // converters
+    Converter<Point, PointDTO> pointDTOConverter = c -> {
+      Optional<Point> source = Optional.ofNullable(c.getSource());
 
-            return source
-                .map(point -> new PointDTO(point.getCoordinates().getValues().get(0), point.getCoordinates().getValues().get(1)))
-                .orElse(null);
-        };
+      return source
+          .map(point -> new PointDTO(point.getCoordinates().getValues().get(0),
+                                     point.getCoordinates().getValues().get(1)))
+          .orElse(null);
+    };
 
-        // setup
-        TypeMap<Accident, AccidentDTO> propertyMapper = modelMapper.createTypeMap(Accident.class, AccidentDTO.class);
-        propertyMapper.addMappings(
-            mapper -> {
-                mapper.using(pointDTOConverter).map(Accident::getStartPoint, AccidentDTO::setStartPoint);
-                mapper.using(pointDTOConverter).map(Accident::getStopPoint, AccidentDTO::setStopPoint);
-            }
-        );
-        modelMapper.getConfiguration().setSkipNullEnabled(true);
+    // setup
+    TypeMap<Accident, AccidentDTO> propertyMapper =
+        modelMapper.createTypeMap(Accident.class, AccidentDTO.class);
+    propertyMapper.addMappings(
+        mapper -> {
+          mapper.using(pointDTOConverter).map(Accident::getStartPoint, AccidentDTO::setStartPoint);
+          mapper.using(pointDTOConverter).map(Accident::getStopPoint, AccidentDTO::setStopPoint);
+        }
+    );
+    modelMapper.getConfiguration().setSkipNullEnabled(true);
 
-        return modelMapper;
-    }
+    return modelMapper;
+  }
 }
