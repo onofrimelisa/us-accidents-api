@@ -1,13 +1,19 @@
 version: '3'
 services:
   mongodb:
-    image: mongo:3.4.0
+    environment:
+      - DOCKER_DEFAULT_PLATFORM=linux/amd64
+    image: mongo:latest
     container_name: mongodb
+    volumes:
+      - ./mongo/create_indexes.js:/docker-entrypoint-initdb.d/create_indexes.js
     ports:
       - 27017:27017
 
   mongo_seed:
-    image: mongo:3.4.0
+    environment:
+        - DOCKER_DEFAULT_PLATFORM=linux/amd64
+    image: mongo:latest
     depends_on:
       - mongodb
     links:
@@ -15,4 +21,4 @@ services:
     volumes:
       - ./mongo:/mongo
     command:
-      /mongo/import.sh
+      - /mongo/import.sh

@@ -1,7 +1,8 @@
 
 .DS_Store
+**us_accidents.csv**
 **us_accidents.json
-**us_accidents.csv
+**preprocess.py
 
 
 ### IntelliJ IDEA ###
