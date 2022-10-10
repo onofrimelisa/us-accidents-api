@@ -7,6 +7,8 @@ import com.unlp.bbdd2.accidents.repository.AccidentRepository;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -17,6 +19,8 @@ import org.springframework.data.geo.Polygon;
 import org.springframework.stereotype.Service;
 
 @Service
+@AllArgsConstructor
+@NoArgsConstructor
 public class AccidentService implements IAccidentService {
 
   private static final int PAGE_SIZE = 10;
