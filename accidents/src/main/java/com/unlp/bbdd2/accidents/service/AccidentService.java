@@ -1,12 +1,16 @@
 package com.unlp.bbdd2.accidents.service;
 
 import com.unlp.bbdd2.accidents.dto.AccidentDTO;
+import com.unlp.bbdd2.accidents.dto.WeatherConditionDTO;
 import com.unlp.bbdd2.accidents.exceptions.NotFoundException;
 import com.unlp.bbdd2.accidents.model.Accident;
+import com.unlp.bbdd2.accidents.model.WeatherConditionAggregation;
 import com.unlp.bbdd2.accidents.repository.AccidentRepository;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -61,7 +65,10 @@ public class AccidentService implements IAccidentService {
     return accidents.map(accident -> modelMapper.map(accident, AccidentDTO.class));
   }
 
-  public List<String> getMostCommonConditions() {
-    return new ArrayList<>();
+  public List<WeatherConditionDTO> getMostCommonWeatherConditions(Integer limit) {
+    return this.accidentRepository.getMostCommonWeatherConditions(limit)
+            .stream()
+            .map(weatherConditionAggregation -> modelMapper.map(weatherConditionAggregation, WeatherConditionDTO.class))
+            .collect(Collectors.toList());
   }
 }

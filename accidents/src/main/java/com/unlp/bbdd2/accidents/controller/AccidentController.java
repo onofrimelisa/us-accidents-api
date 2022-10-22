@@ -3,6 +3,7 @@ package com.unlp.bbdd2.accidents.controller;
 import com.unlp.bbdd2.accidents.dto.AccidentDTO;
 import com.unlp.bbdd2.accidents.dto.CircleRequestDTO;
 import com.unlp.bbdd2.accidents.dto.PolygonRequestDTO;
+import com.unlp.bbdd2.accidents.dto.WeatherConditionDTO;
 import com.unlp.bbdd2.accidents.exceptions.NotFoundException;
 import com.unlp.bbdd2.accidents.service.AccidentService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -15,11 +16,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.geo.Circle;
 import org.springframework.data.geo.Polygon;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @Validated
@@ -64,8 +61,8 @@ public class AccidentController {
   }
 
   @Operation(summary = "Get the most common conditions of the accidents", tags = "Accidents")
-  @GetMapping("/accident/conditions")
-  public List<String> getMostCommonConditions() {
-    return this.accidentService.getMostCommonConditions();
+  @GetMapping("/accident/conditions/weather")
+  public List<WeatherConditionDTO> getMostCommonConditions(@RequestParam Integer limit) {
+    return this.accidentService.getMostCommonWeatherConditions(limit);
   }
 }
