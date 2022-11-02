@@ -17,7 +17,7 @@ The API provides the following functionalities:
 - Get a paginated list of accidents that took place within a given circle shape, providing a point and radius.
 - Get an accident by its identifier.
 - Get a paginated list of all the accidents.
-- Get the list of the most common conditions of the accidents (temperature, humidity, wind conditions, etc.)
+- Get the list of the most common conditions of the accidents (temperature, humidity, weather conditions)
 
 ## Run the application locally
 
