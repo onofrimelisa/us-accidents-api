@@ -3,8 +3,11 @@ package com.unlp.bbdd2.accidents.util;
 import com.mongodb.client.model.geojson.Point;
 import com.unlp.bbdd2.accidents.dto.AccidentDTO;
 import com.unlp.bbdd2.accidents.dto.PointDTO;
+import com.unlp.bbdd2.accidents.dto.WeatherConditionDTO;
 import com.unlp.bbdd2.accidents.model.Accident;
 import java.util.Optional;
+
+import com.unlp.bbdd2.accidents.model.WeatherConditionAggregation;
 import org.modelmapper.Converter;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeMap;
@@ -37,6 +40,13 @@ public class AccidentDTOMapper {
           mapper.using(pointDTOConverter).map(Accident::getStopPoint, AccidentDTO::setStopPoint);
         }
     );
+
+    TypeMap<WeatherConditionAggregation, WeatherConditionDTO> weatherConditionPropertyMapper = modelMapper
+            .createTypeMap(WeatherConditionAggregation.class, WeatherConditionDTO.class);
+    weatherConditionPropertyMapper.addMappings(
+            mapper -> mapper.map(WeatherConditionAggregation::getId, WeatherConditionDTO::setWeatherCondition)
+    );
+
     modelMapper.getConfiguration().setSkipNullEnabled(true);
 
     return modelMapper;

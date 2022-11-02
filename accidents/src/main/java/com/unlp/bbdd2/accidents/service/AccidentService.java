@@ -1,12 +1,15 @@
 package com.unlp.bbdd2.accidents.service;
 
-import com.unlp.bbdd2.accidents.dto.AccidentDTO;
+import com.unlp.bbdd2.accidents.dto.*;
 import com.unlp.bbdd2.accidents.exceptions.NotFoundException;
 import com.unlp.bbdd2.accidents.model.Accident;
+import com.unlp.bbdd2.accidents.model.TemperatureAggregation;
+import com.unlp.bbdd2.accidents.model.WeatherConditionAggregation;
 import com.unlp.bbdd2.accidents.repository.AccidentRepository;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+
+import java.util.*;
+import java.util.stream.Collectors;
+
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -24,6 +27,9 @@ import org.springframework.stereotype.Service;
 public class AccidentService implements IAccidentService {
 
   private static final int PAGE_SIZE = 10;
+  private static final double TEMPERATURE_THRESHOLD = 32.0;
+  private static final String TEMPERATURE_SCALE = "FAHRENHEIT";
+  private static final String MEASUREMENT_TYPE = "RELATIVE";
 
   @Autowired
   @Qualifier("getAccidentDTOMapper")
@@ -61,7 +67,30 @@ public class AccidentService implements IAccidentService {
     return accidents.map(accident -> modelMapper.map(accident, AccidentDTO.class));
   }
 
-  public List<String> getMostCommonConditions() {
-    return new ArrayList<>();
+  public List<WeatherConditionDTO> getMostCommonWeatherConditions(Integer limit) {
+    return this.accidentRepository.getMostCommonWeatherConditions(limit)
+            .stream()
+            .map(weatherConditionAggregation -> modelMapper.map(weatherConditionAggregation, WeatherConditionDTO.class))
+            .collect(Collectors.toList());
+  }
+
+  @Override
+  public TemperatureResponseDTO getTotalAccidentsByTemperature() {
+    return TemperatureResponseDTO.builder()
+            .scale(TEMPERATURE_SCALE)
+            .data(this.accidentRepository.getTotalAccidentsByTemperature(TEMPERATURE_THRESHOLD)
+                    .stream()
+                    .map(temperatureAggregation -> modelMapper.map(temperatureAggregation, TemperatureDTO.class))
+                    .collect(Collectors.toList())).build();
+  }
+
+  @Override
+  public HumidityResponseDTO getTotalAccidentsByHumidity() {
+    return HumidityResponseDTO.builder()
+            .measurementType(MEASUREMENT_TYPE)
+            .data(this.accidentRepository.getTotalAccidentsByHumidity()
+                    .stream()
+                    .map(humidityAggregation -> modelMapper.map(humidityAggregation, HumidityDTO.class))
+                    .collect(Collectors.toList())).build();
   }
 }
