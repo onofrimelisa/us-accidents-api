@@ -1,0 +1,12 @@
+
+.DS_Store
+**us_accidents.csv**
+**us_accidents.json**
+**preprocess.py
+
+
+### IntelliJ IDEA ###
+.idea
+*.iws 
+*.iml
+*.ipr
