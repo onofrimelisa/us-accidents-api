@@ -1,11 +1,82 @@
 {
 	"info": {
-		"_postman_id": "8c142ec9-c755-45a2-94d5-87a912d8e617",
+		"_postman_id": "ef926a08-edd8-4a8b-973a-2c61c212b493",
 		"name": "BD2",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "21797663"
+		"_exporter_id": "22341219"
 	},
 	"item": [
+		{
+			"name": "Conditions",
+			"item": [
+				{
+					"name": "Most common conditions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/accident/conditions/weather?limit=5",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"accident",
+								"conditions",
+								"weather"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Total of accidents by temperature",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/accident/conditions/temperature",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"accident",
+								"conditions",
+								"temperature"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Total of accidents by humidity",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/accident/conditions/humidity",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"accident",
+								"conditions",
+								"humidity"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
 		{
 			"name": "Get accidents",
 			"request": {
