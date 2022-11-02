@@ -1,9 +1,15 @@
 # US ACCIDENTS API
 
+- [Requirements](#requirements)
 - [Description](#description)
 - [Run the application locally](#run-the-application-locally)
 - [Useful Links](#useful-links)
 - [Ownership](#ownership)
+
+## Requirements
+
+- Java 11
+- Docker
 
 ## Description
 
@@ -21,7 +27,7 @@ The API provides the following functionalities:
 
 ## Run the application locally
 
-1. Download the JSON file containing the dataset from [here](https://drive.google.com/file/d/17qCWlPhQbePxwhUWHy5oi8sAuVSb0YX2/view?usp=sharing).
+1. Download the JSON file (zip) containing the dataset from [here](https://drive.google.com/file/d/17qCWlPhQbePxwhUWHy5oi8sAuVSb0YX2/view?usp=sharing).
 2. Unzip the file and store it within the _/mongo_ folder, by the name **us_accidents.json**
 3. On the root of the project, execute the command `docker-compose up`.
    This command will set up the Mongo database, executing the script _/mongo/import.sh_ which will import the dataset to the database.
@@ -40,7 +46,7 @@ The API provides the following functionalities:
 
 ## Ownership
 
-- Onofri, Melisa
-- Repetto, Lorenzo
+- Onofri, Melisa 15293/9
+- Repetto, Lorenzo 15143/5
 
 2022
